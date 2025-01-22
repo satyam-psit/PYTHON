@@ -1,0 +1,31 @@
+class Vehicle:
+    def __init__(self):
+        
+        self.mileage = 10 
+        self.fuel_left = 20  
+
+    def identify_distance_that_can_be_travelled(self):
+      
+        reserve_fuel = 5
+        usable_fuel = self.fuel_left - reserve_fuel
+        if usable_fuel > 0:
+            return usable_fuel * self.mileage
+        else:
+            return 0  #
+
+    def identify_distance_travelled(self, initial_fuel):
+      
+        distance_travelled = (initial_fuel - self.fuel_left) * self.mileage
+        return distance_travelled
+
+
+
+vehicle = Vehicle()
+
+
+max_distance = vehicle.identify_distance_that_can_be_travelled()
+print(f"Maximum distance that can be travelled without using reserve fuel: {max_distance} km")
+
+
+distance_travelled = vehicle.identify_distance_travelled(initial_fuel=20)
+print(f"Distance travelled so far: {distance_travelled} km")
